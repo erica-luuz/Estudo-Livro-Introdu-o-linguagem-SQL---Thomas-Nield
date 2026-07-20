@@ -1,0 +1,38 @@
+SELECT *
+FROM station_data   --Seleciona ano desejado
+WHERE year = 2010;
+
+SELECT *
+FROM station_data   --Seleciona todos, mas não inclui 2010
+WHERE year != 2010;
+
+SELECT *
+FROM station_data     -- Seleciona valores entre esse periodo
+WHERE year BETWEEN 2005 and 2010;
+
+SELECT *
+FROM station_data     -- Seleciona valores entre esse periodo
+WHERE year >= 2005 and year <= 2010;
+
+SELECT *
+FROM station_data     -- Seleciona valores entre esse periodo, sem inclui-los
+WHERE year > 2005 and year < 2010;
+
+SELECT *
+FROM station_data     -- Em uma instrução OR pelo menos um dos critérios devem ser atendidos
+WHERE month = 3
+OR month = 6
+OR month = 9
+OR month = 12;
+
+SELECT *
+FROM station_data     -- Em uma instrução IN (igaul a OR) onde temos essa lista de valores (aqui temos instrução mesno verbosa)
+WHERE month IN (3, 6, 9, 12);
+
+SELECT *
+FROM station_data     -- Em uma instrução IN onde temops essa lista de valores, mas não incluindo esses valores realtivos
+WHERE month NOT IN (3, 6, 9, 12);
+
+SELECT *
+FROM station_data     -- Operações matemáticas, aqui pegamos todos os meses em que a divisão por 3 forneça 0 de resto. Módulo de  3.
+WHERE month % 3 = 0;
