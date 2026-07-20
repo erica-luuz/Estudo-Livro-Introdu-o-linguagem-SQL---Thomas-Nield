@@ -1,0 +1,18 @@
+select 
+product_id,
+description,
+price as PREÇO_SEM_IMPOSTO,
+round(price * 1.07, 2) as TAXED_PRICE
+from product;
+
+select name,
+city || ',' || state as location
+from customer;
+
+select name,
+street_address || ' ' || city || ',' ||state || ' ' || zip as ship_address
+from customer;
+
+select name,
+concat_ws(',', street_address, city, state, zip) as ship_address
+from customer;
