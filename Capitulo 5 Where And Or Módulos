@@ -1,0 +1,58 @@
+SELECT *
+FROM station_data   --Seleciona ano desejado
+WHERE year = 2010;
+
+SELECT *
+FROM station_data   --Seleciona todos, mas não inclui 2010
+WHERE year != 2010;
+
+SELECT *
+FROM station_data     -- Seleciona valores entre esse periodo
+WHERE year BETWEEN 2005 and 2010;
+
+SELECT *
+FROM station_data     -- Seleciona valores entre esse periodo
+WHERE year >= 2005 and year <= 2010;
+
+SELECT *
+FROM station_data     -- Seleciona valores entre esse periodo, sem inclui-los
+WHERE year > 2005 and year < 2010;
+
+SELECT *
+FROM station_data     -- Em uma instrução OR pelo menos um dos critérios devem ser atendidos
+WHERE month = 3
+OR month = 6
+OR month = 9
+OR month = 12;
+
+SELECT *
+FROM station_data     -- Em uma instrução IN (igaul a OR) onde temos essa lista de valores (aqui temos instrução mesno verbosa)
+WHERE month IN (3, 6, 9, 12);
+
+SELECT *
+FROM station_data     -- Em uma instrução IN onde temops essa lista de valores, mas não incluindo esses valores realtivos
+WHERE month NOT IN (3, 6, 9, 12);
+
+SELECT *
+FROM station_data     -- Operações matemáticas, aqui pegamos todos os meses em que a divisão por 3 forneça 0 de resto. Módulo de  3.
+WHERE month % 3 = 0;
+
+SELECT *
+FROM station_data      -- Usando Where, com textos é necessário usar aspas simples ''
+WHERE report_code = '513A63';
+
+SELECT *
+FROM station_data      -- Consigo usar a busca para vários textos
+WHERE report_code IN ('513A63', '1F8A7B', 'EF616A');
+
+SELECT *
+FROM station_data   -- LENGTH CONTA O NUMERO DE CARACTERES DE UM VALOR EM ESPECÍFICO
+WHERE length(report_code) !=6;
+
+SELECT *
+FROM station_data    -- Caractere coringa, para encontrarmos valores que comecem com A.
+WHERE report_code LIKE 'A%';
+
+SELECT *
+FROM station_data    -- Caractere coringa, para encontrarmos valores que comece com B e depois tenha como segundo o C e o resto em diante
+WHERE report_code LIKE 'B_C%';
